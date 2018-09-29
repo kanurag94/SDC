@@ -1,2 +1,0 @@
-# SDC
-Tasks of SDC
