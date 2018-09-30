@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <body>
+        <h1 style="text-align:center">To - Do List</h1>
+        <form ng-submit="add()">
+            <input type="text" ng-model='todoInput' size="30" value="New Task">
+            <input type="submit" value ="add_new">
+        </form>
+        <br/><br/>
+            <div ng-repeat="for z in todo">
+                <input type="checkbox" ng-model="z.complete"><span ng-bind="z.text"></span>
+            </div>
+            <input type ="button" ng-click="remove()">Delete Checked</button>
+            <script>
+                var app=angular.module('myApp', []);
+                app.controller('ctrl', function($scope){
+                    $scope.todo = [{text:'Python', done:false}];
+                $scope.add=function(){
+                    $scope.todo.push({text:#scope.todoInput, done:false})
+                    $scope.todoInput="";
+                };
+                $scope.remove = function(){
+                    var old=$scope.todo;
+                    $scope.todo=[];
+                    angular.forEach(old, function(z){
+                        if(!z.done) $scope.todo.push(z);
+                    });
+                };
+
+                });
+            </script>
+    </body>
+</html>
