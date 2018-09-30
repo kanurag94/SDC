@@ -1,34 +1,50 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>To-Do List</title>
+        <link rel="shortcut icon" type="image/png" icon" href="/favicon.png"/>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <body>
-        <h1 style="text-align:center">To - Do List</h1>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>   
+    <body ng-app="myApp" ng-controller="ctrl">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">To-Do List</h1>
+                <p class="lead">Simple To-Do list webpage</p>
+            </div>
+        </div>
+        <br>
+        <div align="center">
         <form ng-submit="add()">
             <input type="text" ng-model='todoInput' size="30" value="New Task">
-            <input type="submit" value ="add_new">
+            <input type="submit" class="btn btn-success" value ="add_new">
         </form>
         <br/><br/>
-            <div ng-repeat="for z in todo">
-                <input type="checkbox" ng-model="z.complete"><span ng-bind="z.text"></span>
-            </div>
-            <input type ="button" ng-click="remove()">Delete Checked</button>
+            <div ng-repeat="x in todo">
+                <input type="checkbox" ng-model="x.complete"><span ng-bind="x.todotext"></span>
+            </div><br><br>
+             <input type ="button" class ="btn btn-warning" value =" Delete checked Elements" ng-click="remove()"></button>
             <script>
                 var app=angular.module('myApp', []);
                 app.controller('ctrl', function($scope){
-                    $scope.todo = [{text:'Python', done:false}];
+                    $scope.todo = [{todotext:'Python', done:false}];
                 $scope.add=function(){
-                    $scope.todo.push({text:#scope.todoInput, done:false})
+                    $scope.todo.push({todotext:$scope.todoInput, done:false})
                     $scope.todoInput="";
                 };
                 $scope.remove = function(){
                     var old=$scope.todo;
                     $scope.todo=[];
-                    angular.forEach(old, function(z){
-                        if(!z.done) $scope.todo.push(z);
+                    angular.forEach(old, function(x){
+                        if(!x.done) $scope.todo.push(x);
                     });
                 };
 
                 });
             </script>
+            </div>
     </body>
+
 </html>
