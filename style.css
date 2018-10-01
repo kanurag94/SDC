@@ -11,4 +11,5 @@
     text-align: center;
     display: table-cell;
     vertical-align: middle;
+    border: 2px dotted;
 }
