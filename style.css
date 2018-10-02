@@ -1,9 +1,8 @@
-
 #container1{
     display: table;
-    height: 400px;
+    height: auto;
     margin: 0 auto;
-    width: 400px;
+    width: auto;
 }
 .content1{
     background: #f2f2f2;
@@ -12,3 +11,5 @@
     display: table-cell;
     vertical-align: middle;
 }
+.jumbotron {
+    background-size: cover;}
