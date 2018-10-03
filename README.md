@@ -1,7 +1,11 @@
 # SDC
 Tasks of SDC
 ## To-Do List
-Used:<br/>
+### Live Link
+<br/> https://kanurag94.github.io/SDC<br/>
+
+### Used:
+<br/>
 HTML, CSS, Bootstrap, Angular
 <br/><br/>
 There are two functions : add and remove, which as name suggests does the task.<br/>
